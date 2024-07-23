@@ -1,0 +1,41 @@
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+    const socket = io();
+
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+
+    const message_container = document.getElementById('msg-container');
+
+
+    socket.on('message', (msg) => {
+        if(msg.username === "<%=locals.username%>") {
+            message_container.insertAdjacentHTML('beforeend', '<div class="content flex right"><div class="bubble you">'+msg.message+'</div></div>');
+        } else {
+            message_container.insertAdjacentHTML('beforeend', '<div class="content flex"><div class="bubble "><small><b>'+msg.username+'</b></small><br>'+msg.message+'</div></div>');
+        }
+        message_container.scrollTop = message_container.scrollHeight;
+    });
+
+    socket.on('onJoin', (msg) => {
+        message_container.insertAdjacentHTML('beforeend', '<small class="joinstat join">'+msg+'</small>');
+    });
+
+    socket.on('onLeave', (msg) => {
+        message_container.insertAdjacentHTML('beforeend', '<small class="joinstat left">'+msg+'</small>');
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if(input.value) {
+            socket.emit('message', {
+                username : "<%=locals.username%>",
+                message : input.value
+            });
+            input.value = '';
+        }
+        message_container.scrollTop = message_container.scrollHeight;
+    });
+</script>    
+</body>
+</html>

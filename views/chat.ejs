@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs')%>
+<!--*CONTENT GOES HERE -->
+
+<div class="wrapper flex">
+    <div class="container flex" id="container">
+        <div class="msg-container" id="msg-container">
+            <div class="content flex right">
+                <div class="bubble you">Welcome <b><%=locals.username%>!</b> Type anything here!
+                </div>
+            </div>
+        </div>
+        <div class="send-msg-container">
+            <form id="form" class="flex">
+                <input id="input" name="" class="textarea">
+                <button id="send">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs')%>
