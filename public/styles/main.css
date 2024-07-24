@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 /* IOS CSS reset */
-input, textarea, select { 
+input, textarea, select, button { 
     -webkit-appearance: none; 
     -moz-appearance: none; 
     appearance: none; border-radius: 0; 
@@ -30,7 +30,7 @@ body {
 .container {
     width: 700px;
     max-width: 100%;
-    height: 97vh;
+    height: calc(100vh - 50px);
     padding: 0 5px;
     padding-top: 5px;
     flex-direction: column;
@@ -67,18 +67,40 @@ body {
 }
 /* SEND MESSAGE */
 
+.send-message {
+    display: fixed;
+    left: 0;
+}
+
+.send-msg-container {
+    justify-content: center;
+}
+
 .send-msg-container form {
+    width: 700px;
+    max-width: 100%;
     height: 50px;
-    width: 100%;
-    gap: 10px;
     padding: 5px;
+    gap: 10px;
 }
 
 .textarea {
     flex-grow: 1;
     font-family: Ubuntu;
     font-size: .9rem;
-    padding: 0 .5rem;
+    padding: 0 1rem;
+    border: none;
+    background-color: #ecf0f1;
+    border-radius: 1rem;
+    outline: none;
+}
+
+button {
+    border-radius: 1rem;
+    width: 50px;
+    color: #fff;
+    background-color: #2c3e50;
+    border: none;
 }
 
 .joinstat {

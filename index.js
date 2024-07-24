@@ -18,12 +18,15 @@ app.get('/', (err, res) => {
 // CHAT VAR
 let username = '';
 
+let generalChat = [];
+
 app.post('/', (req, res) => {
     username = req.body.username.trim();
     
     if(username !== '') {
         res.render('chat.ejs', {
-            username : username
+            username : username,
+            generalChat : generalChat
         })
     } else {
         res.redirect('/');
@@ -38,7 +41,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('message', (msg) => {
-        console.log(msg);
+        generalChat.push(msg);
         io.emit('message', msg);
     });
 });

@@ -7,6 +7,7 @@
 
     const message_container = document.getElementById('msg-container');
 
+    message_container.scrollTop = message_container.scrollHeight;
 
     socket.on('message', (msg) => {
         if(msg.username === "<%=locals.username%>") {
@@ -19,10 +20,12 @@
 
     socket.on('onJoin', (msg) => {
         message_container.insertAdjacentHTML('beforeend', '<small class="joinstat join">'+msg+'</small>');
+        message_container.scrollTop = message_container.scrollHeight;
     });
 
     socket.on('onLeave', (msg) => {
         message_container.insertAdjacentHTML('beforeend', '<small class="joinstat left">'+msg+'</small>');
+        message_container.scrollTop = message_container.scrollHeight;
     });
 
     form.addEventListener('submit', (e) => {
@@ -36,6 +39,8 @@
         }
         message_container.scrollTop = message_container.scrollHeight;
     });
+
+    window.scrollTo(0, document.body.scrollHeight);
 </script>    
 </body>
 </html>
