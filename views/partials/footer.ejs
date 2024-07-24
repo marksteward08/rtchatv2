@@ -23,10 +23,10 @@
         window.scrollTo(0, document.body.scrollHeight);
     });
 
-    socket.on('onLeave', (msg) => {
-        message_container.insertAdjacentHTML('beforeend', '<small class="joinstat left">'+msg+'</small>');
-        window.scrollTo(0, document.body.scrollHeight);
-    });
+    // socket.on('onLeave', (msg) => {
+    //     message_container.insertAdjacentHTML('beforeend', '<small class="joinstat left">'+msg+'</small>');
+    //     window.scrollTo(0, document.body.scrollHeight);
+    // });
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
