@@ -1,1 +1,1 @@
-Simple real-time chat application using Node.JS
+Simple real-time chat application using Node.JS, Websocket, and HTTP
