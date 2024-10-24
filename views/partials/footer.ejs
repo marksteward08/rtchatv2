@@ -5,6 +5,8 @@
     const form = document.getElementById('form');
     const input = document.getElementById('input');
 
+    var audio = new Audio('message.mp3');
+
     const message_container = document.getElementById('msg-container');
 
     window.scrollTo(0, document.body.scrollHeight);
@@ -14,6 +16,9 @@
             message_container.insertAdjacentHTML('beforeend', '<div class="content flex right"><div class="bubble you">'+msg.message+'</div></div>');
         } else {
             message_container.insertAdjacentHTML('beforeend', '<div class="content flex"><div class="bubble "><small><b>'+msg.username+'</b></small><br>'+msg.message+'</div></div>');
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play();
         }
         window.scrollTo(0, document.body.scrollHeight);
     });
